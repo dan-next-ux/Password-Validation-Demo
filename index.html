@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Reset Password</title>
+  <link rel="stylesheet" href="styles/Next_Revision.vars.css">
+  <link rel="stylesheet" href="styles/styles.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+</head>
+<body>
+  <main class="page-shell">
+    <section class="password-reset" aria-label="Reset password">
+      <header class="brand-bar">
+        <button class="icon-button" type="button" aria-label="Security information">
+          <img src="images/secure-m-default.svg" alt="">
+        </button>
+        <img class="brand-logo" src="images/new-next-logo.svg" alt="Next">
+        <div class="brand-actions" aria-label="Header actions">
+          <button class="help-link" type="button">Help</button>
+          <span class="brand-divider" aria-hidden="true"></span>
+          <button class="icon-button bag-button" type="button" aria-label="Shopping bag">
+            <img src="images/shopping-bag-small.svg" alt="">
+            <span class="bag-count" aria-label="1 item in bag">1</span>
+          </button>
+        </div>
+      </header>
+
+      <div class="page-title-bar">
+        <h1 class="page-title">Reset Password</h1>
+      </div>
+
+      <div class="content-wrap">
+        <section class="notice-card" aria-label="Password reset notice">
+          <h2 class="notice-title">Please set a new password</h2>
+          <p class="notice-copy">You will need to use your new details next time you sign in or place an order.</p>
+        </section>
+
+        <section class="password-panel" aria-labelledby="password-label">
+          <label class="field-label" id="password-label" for="password-input">New Password</label>
+
+          <div class="password-field" data-visible="true">
+            <input
+              id="password-input"
+              class="password-input"
+              type="text"
+              value="pa55"
+              autocomplete="new-password"
+              spellcheck="false"
+              aria-describedby="password-requirements"
+            >
+            <button
+              id="password-toggle"
+              class="toggle-button"
+              type="button"
+              aria-controls="password-input"
+              aria-pressed="true"
+            >
+              Hide
+            </button>
+          </div>
+
+          <p class="requirements-title">Your password must contain:</p>
+
+          <ul class="requirements-list" id="password-requirements" aria-live="polite">
+            <li class="requirement-item is-met" data-rule="lowercase">
+              <span class="requirement-icon" aria-hidden="true"></span>
+              <span class="requirement-text">One lowercase letter</span>
+            </li>
+            <li class="requirement-item is-met" data-rule="number">
+              <span class="requirement-icon" aria-hidden="true"></span>
+              <span class="requirement-text">One number</span>
+            </li>
+            <li class="requirement-item is-unmet" data-rule="uppercase">
+              <span class="requirement-icon" aria-hidden="true"></span>
+              <span class="requirement-text">One UPPERCASE letter</span>
+            </li>
+            <li class="requirement-item is-unmet" data-rule="length">
+              <span class="requirement-icon" aria-hidden="true"></span>
+              <span class="requirement-text">8 to 25 characters</span>
+            </li>
+          </ul>
+
+          <button class="submit-button" type="button">Set New Password</button>
+        </section>
+      </div>
+    </section>
+  </main>
+
+  <script src="scripts/script.js"></script>
+</body>
+</html>

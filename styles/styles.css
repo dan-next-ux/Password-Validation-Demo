@@ -265,6 +265,7 @@ a {
   line-height: var(--component-button-large-line-height);
   letter-spacing: var(--component-button-large-letter-spacing);
   text-transform: var(--component-button-large-text-transform);
+  cursor: pointer;
 }
 
 .password-input__toggle {

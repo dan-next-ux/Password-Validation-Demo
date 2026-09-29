@@ -1,40 +1,62 @@
-const passwordField = document.querySelector(".password-field");
-const passwordInput = document.querySelector("#password-input");
-const passwordToggle = document.querySelector("#password-toggle");
-const requirementItems = document.querySelectorAll(".requirement-item");
+const passwordForm = document.querySelector(".password-form");
+const passwordInput = document.querySelector("#new-password");
+const toggleButton = document.querySelector(".password-input__toggle");
+const requirementItems = document.querySelectorAll(".password-rules__item");
+let hasSubmitted = false;
 
-const rules = {
+const ruleChecks = {
   lowercase: (value) => /[a-z]/.test(value),
   number: (value) => /\d/.test(value),
   uppercase: (value) => /[A-Z]/.test(value),
   length: (value) => value.length >= 8 && value.length <= 25,
 };
 
-function setPasswordVisibility(isVisible) {
-  passwordInput.type = isVisible ? "text" : "password";
-  passwordField.dataset.visible = String(isVisible);
-  passwordToggle.textContent = isVisible ? "Hide" : "Show";
-  passwordToggle.setAttribute("aria-pressed", String(isVisible));
+const ruleIcons = {
+  neutral: "images/icon-bullet-neutral.svg",
+  met: "images/icon-check-small.svg",
+  unmet: "images/icon-cross-small.svg",
+};
+
+function syncToggleLabel() {
+  const isHidden = passwordInput.type === "password";
+  toggleButton.textContent = isHidden ? "Show" : "Hide";
+  toggleButton.setAttribute("aria-label", isHidden ? "Show password" : "Hide password");
 }
 
-function updateRequirements(value) {
+function updateRequirementState(item, isMet, showErrors) {
+  const icon = item.querySelector(".password-rules__icon");
+  const isUnmet = !isMet && showErrors;
+
+  item.classList.toggle("password-rules__item--met", isMet);
+  item.classList.toggle("password-rules__item--unmet", isUnmet);
+  icon.src = isMet ? ruleIcons.met : isUnmet ? ruleIcons.unmet : ruleIcons.neutral;
+}
+
+function validatePassword() {
+  const value = passwordInput.value;
+
   requirementItems.forEach((item) => {
     const ruleName = item.dataset.rule;
-    const isMet = rules[ruleName](value);
-
-    item.classList.toggle("is-met", isMet);
-    item.classList.toggle("is-unmet", !isMet);
+    const isMet = ruleChecks[ruleName](value);
+    updateRequirementState(item, isMet, hasSubmitted);
   });
 }
 
-passwordToggle.addEventListener("click", () => {
-  const isVisible = passwordInput.type === "text";
-  setPasswordVisibility(!isVisible);
+toggleButton.addEventListener("click", () => {
+  passwordInput.type = passwordInput.type === "password" ? "text" : "password";
+  syncToggleLabel();
+  passwordInput.focus({ preventScroll: true });
+  const end = passwordInput.value.length;
+  passwordInput.setSelectionRange(end, end);
 });
 
-passwordInput.addEventListener("input", (event) => {
-  updateRequirements(event.target.value);
+passwordInput.addEventListener("input", validatePassword);
+
+passwordForm.addEventListener("submit", (event) => {
+  event.preventDefault();
+  hasSubmitted = true;
+  validatePassword();
 });
 
-setPasswordVisibility(true);
-updateRequirements(passwordInput.value);
+syncToggleLabel();
+validatePassword();

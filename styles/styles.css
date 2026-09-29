@@ -27,19 +27,16 @@
   font-weight: 400;
   src: url("/fonts/next-display/next-display-400.woff2") format("woff2");
 }
-
 @font-face {
   font-family: "Next Display";
   font-weight: 500;
   src: url("/fonts/next-display/next-display-500.woff2") format("woff2");
 }
-
 @font-face {
   font-family: "Next Display";
   font-weight: 700;
   src: url("/fonts/next-display/next-display-700.woff2") format("woff2");
 }
-
 @font-face {
   font-family: "Next Display";
   font-weight: 800;
@@ -55,20 +52,11 @@
 body {
   font-family: var(--global-body-1-font-family), sans-serif;
   font-size: var(--global-body-1-font-size);
+  font-weight: var(--global-body-1-font-weight);
   line-height: var(--global-body-1-line-height);
-  background: var(--background-main);
+  letter-spacing: var(--global-body-1-letter-spacing);
+  background: var(--background-paper);
   color: var(--text-primary);
-}
-
-button,
-input {
-  font: inherit;
-}
-
-button {
-  background: none;
-  border: 0;
-  color: inherit;
 }
 
 img {
@@ -76,266 +64,257 @@ img {
   max-width: 100%;
 }
 
+button,
+input {
+  font: inherit;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
 .page-shell {
   width: 100%;
 }
 
-.password-reset {
+.content-width {
   width: 100%;
   max-width: 768px;
-  margin: 0 auto;
-  min-height: 100vh;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.site-header {
   background: var(--background-paper);
 }
 
-.brand-bar {
+.site-header__bar {
+  position: relative;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  height: 44px;
-  border-bottom: 1px solid #eeeeee;
-  background: var(--background-paper);
+  min-height: 44px;
+  border-bottom: 1px solid var(--components-divider-default-border-color);
+}
+
+.site-header__logo {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.site-header__actions,
+.icon-button {
+  display: flex;
+  align-items: center;
 }
 
 .icon-button {
-  display: inline-flex;
-  align-items: center;
   justify-content: center;
   width: 44px;
   height: 44px;
-  cursor: pointer;
+  padding: 10px;
+  border: 0;
+  background: transparent;
 }
 
-.icon-button img {
-  width: 20px;
-  height: 20px;
+.site-header__actions {
+  gap: 4px;
+  margin-left: auto;
+  padding-right: 4px;
 }
 
-.brand-logo {
-  width: 83px;
-  height: 20px;
-}
-
-.brand-actions {
-  display: flex;
-  align-items: center;
-  height: 100%;
-}
-
-.help-link {
+.site-header__help {
   padding: 0 8px;
-  font-family: var(--global-body-2-font-family), sans-serif;
+  font-family: var(--global-body-2-font-family);
   font-size: var(--global-body-2-font-size);
+  font-weight: var(--global-body-2-font-weight);
   line-height: var(--global-body-2-line-height);
-  cursor: pointer;
+  letter-spacing: var(--global-body-2-letter-spacing);
 }
 
-.brand-divider {
+.site-header__divider {
   width: 1px;
   height: 19px;
-  background: #d9d9d9;
+  background: var(--components-divider-default-border-color);
+  transform: rotate(180deg);
 }
 
-.bag-button {
+.icon-button--bag {
   position: relative;
 }
 
-.bag-count {
+.badge-count {
   position: absolute;
-  top: 16px;
-  right: 11px;
+  top: 17px;
+  left: 14px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   min-width: 16px;
   height: 14px;
-  padding: 0 2px;
+  padding: 2px;
   border-radius: 64px;
-  font-family: var(--component-badge-label-font-family, var(--global-body-2-font-family)), sans-serif;
-  font-size: var(--component-badge-label-font-size, 0.625rem);
+  font-family: "Poppins", sans-serif;
+  font-size: 10px;
   font-weight: 500;
   line-height: 1.5;
+  color: var(--text-primary);
 }
 
-.page-title-bar {
+.page-nav {
   display: flex;
   align-items: center;
   justify-content: center;
   min-height: 44px;
-  padding: 10px 16px;
-  border-bottom: 1px solid #eeeeee;
+  padding: 0 16px;
+  border-bottom: 1px solid var(--components-divider-default-border-color);
   background: var(--background-paper);
 }
 
-.page-title {
-  font-family: var(--global-h2-font-family), sans-serif;
+.page-nav__title {
+  font-family: var(--global-h2-font-family);
   font-size: var(--global-h2-font-size);
   font-weight: var(--global-h2-font-weight);
   line-height: var(--global-h2-line-height);
-  text-align: center;
+  letter-spacing: var(--global-h2-letter-spacing);
 }
 
-.content-wrap {
+.page-content {
   padding: 16px;
 }
 
-.notice-card {
+.alert-banner {
+  margin-bottom: 16px;
   padding: 16px;
-  border-left: 2px solid #d88f31;
-  background: #fdf9f5;
+  border-left: 2px solid var(--components-alert-warning-default-border-color);
+  background: var(--components-alert-warning-default-background-color);
 }
 
-.notice-title {
-  font-family: var(--global-subtitle-2-font-family), sans-serif;
+.alert-banner__title {
+  margin-bottom: 10px;
+  font-family: var(--global-subtitle-2-font-family);
   font-size: var(--global-subtitle-2-font-size);
   font-weight: var(--global-subtitle-2-font-weight);
   line-height: var(--global-subtitle-2-line-height);
+  letter-spacing: var(--global-subtitle-2-letter-spacing);
+  color: var(--components-alert-warning-default-text-color);
 }
 
-.notice-copy {
-  margin-top: 10px;
-  font-family: var(--global-body-1-font-family), sans-serif;
-  font-size: var(--global-body-1-font-size);
-  line-height: var(--global-body-1-line-height);
+.alert-banner__copy {
+  color: var(--components-alert-warning-default-text-color);
 }
 
-.password-panel {
-  margin-top: 16px;
+.password-form,
+.field-group,
+.password-rules {
+  display: flex;
+  flex-direction: column;
 }
 
-.field-label,
-.requirements-title,
-.requirement-text {
-  font-family: var(--global-body-1-font-family), sans-serif;
-  font-size: var(--global-body-1-font-size);
-  line-height: var(--global-body-1-line-height);
+.password-form,
+.field-group {
+  gap: 4px;
 }
 
-.password-field {
-  position: relative;
+.field-group__label,
+.password-rules__title {
+  font-family: var(--component-input-label-1-font-family);
+  font-size: var(--component-input-label-1-font-size);
+  font-weight: var(--component-input-label-1-font-weight);
+  line-height: var(--component-input-label-1-line-height);
+  letter-spacing: var(--component-input-label-1-letter-spacing);
+}
+
+.password-input {
   display: flex;
   align-items: stretch;
   width: 100%;
   min-height: 44px;
-  margin-top: 8px;
   border: 1px solid var(--action-default-selected-border-color);
   border-radius: var(--action-default-border-radius);
   background: var(--action-default-selected-background-color);
-  outline: 2px solid var(--interactive-focus-default-outline-color);
-  outline-offset: 2px;
-  overflow: hidden;
 }
 
-.password-input {
+.password-input__control {
   flex: 1;
   min-width: 0;
-  height: 44px;
   padding: 0 12px;
   border: 0;
+  border-right: 1px solid var(--action-default-selected-border-color);
   background: transparent;
   color: var(--text-primary);
-  caret-color: var(--text-primary);
+  font-family: var(--component-input-text-font-family);
+  font-size: var(--component-input-text-font-size);
+  font-weight: var(--component-input-text-font-weight);
+  line-height: var(--component-input-text-line-height);
+  letter-spacing: var(--component-input-text-letter-spacing);
 }
 
-.password-input:focus {
-  outline: none;
+.password-input__control:focus {
+  outline: 0;
 }
 
-.password-field[data-visible="false"] .password-input {
-  -webkit-text-security: disc;
+.password-input__toggle,
+.primary-action {
+  min-height: 44px;
+  border-radius: var(--components-button-default-border-radius);
+  font-family: var(--component-button-large-font-family);
+  font-size: var(--component-button-large-font-size);
+  font-weight: var(--component-button-large-font-weight);
+  line-height: var(--component-button-large-line-height);
+  letter-spacing: var(--component-button-large-letter-spacing);
+  text-transform: var(--component-button-large-text-transform);
 }
 
-.toggle-button {
+.password-input__toggle {
   flex: 0 0 89px;
-  border-left: 1px solid var(--action-default-selected-border-color);
-  background: var(--background-paper);
-  font-family: "Next Display", sans-serif;
-  font-size: 0.875rem;
-  font-weight: 800;
-  line-height: 1.5;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  cursor: pointer;
+  border: 0;
+  background: var(--components-button-outlined-secondary-enabled-background-color);
+  color: var(--components-button-outlined-secondary-enabled-contrast-text-color);
 }
 
-.requirements-title {
-  margin-top: 16px;
+.password-rules {
+  gap: 4px;
 }
 
-.requirements-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 4px 0;
-  margin-top: 4px;
+.password-rules__list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px 16px;
   list-style: none;
 }
 
-.requirement-item {
+.password-rules__item {
   display: flex;
   align-items: center;
-  width: 50%;
+  gap: 0;
   min-width: 0;
   color: var(--text-secondary);
 }
 
-.requirement-icon {
-  position: relative;
-  flex: 0 0 24px;
+.password-rules__item span:last-child {
+  white-space: nowrap;
+}
+
+.password-rules__item--unmet {
+  color: var(--brand-error-default-text-color);
+}
+
+.password-rules__item--met {
+  color: var(--brand-success-default-text-color);
+}
+
+.password-rules__icon {
   width: 24px;
   height: 24px;
+  flex: 0 0 24px;
 }
 
-.requirement-item.is-met {
-  color: #257f39;
-}
-
-.requirement-item.is-met .requirement-icon {
-  background: center / 12px 12px no-repeat url("/images/checkmark.svg");
-}
-
-.requirement-item.is-unmet {
-  color: var(--action-default-error-border-color);
-}
-
-.requirement-item.is-unmet .requirement-icon::before,
-.requirement-item.is-unmet .requirement-icon::after {
-  content: "";
-  position: absolute;
-  top: 11px;
-  left: 5px;
-  width: 14px;
-  height: 2px;
-  border-radius: 999px;
-  background: currentColor;
-}
-
-.requirement-item.is-unmet .requirement-icon::before {
-  transform: rotate(45deg);
-}
-
-.requirement-item.is-unmet .requirement-icon::after {
-  transform: rotate(-45deg);
-}
-
-.submit-button {
+.primary-action {
   width: 100%;
-  height: 44px;
-  margin-top: 16px;
-  border: 1px solid var(--primary-main);
-  border-radius: var(--components-button-default-border-radius);
-  background: var(--primary-main);
-  color: var(--primary-contrast);
-  font-family: "Next Display", sans-serif;
-  font-size: 0.875rem;
-  font-weight: 800;
-  line-height: 1.5;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  cursor: pointer;
-}
-
-@media (max-width: 359px) {
-  .requirement-item {
-    width: 100%;
-  }
+  padding: 12px 24px;
+  border: 1px solid var(--components-button-contained-primary-enabled-border-color);
+  background: var(--components-button-contained-primary-enabled-background-color);
+  color: var(--components-button-contained-primary-enabled-contrast-text-color);
 }

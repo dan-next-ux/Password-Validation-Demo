@@ -1,0 +1,13 @@
+interface:
+  display_name: "Penpot MCP"
+  short_description: "Help with Penpot MCP setup and workflows"
+  default_prompt: "Use $penpot-mcp to connect an MCP client to Penpot and work with design files."
+dependencies:
+  tools:
+    - type: "mcp"
+      value: "penpot"
+      description: "Local Penpot MCP server"
+      transport: "streamable_http"
+      url: "http://localhost:4401/mcp"
+policy:
+  allow_implicit_invocation: true

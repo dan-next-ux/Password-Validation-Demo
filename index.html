@@ -1,91 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>Reset Password</title>
-  <link rel="stylesheet" href="styles/Next_Revision.vars.css">
-  <link rel="stylesheet" href="styles/styles.css">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta charset="utf-8">
+<title>Reset Password</title>
+<link rel="stylesheet" href="styles/Next_Revision.vars.css">
+<link rel="stylesheet" href="styles/styles.css">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 </head>
 <body>
-  <main class="page-shell">
-    <section class="password-reset" aria-label="Reset password">
-      <header class="brand-bar">
+  <div class="page-shell">
+    <header class="site-header">
+      <div class="site-header__bar content-width">
         <button class="icon-button" type="button" aria-label="Security information">
-          <img src="images/secure-m-default.svg" alt="">
+          <img src="images/icon-lock.svg" alt="" width="24" height="24">
         </button>
-        <img class="brand-logo" src="images/new-next-logo.svg" alt="Next">
-        <div class="brand-actions" aria-label="Header actions">
-          <button class="help-link" type="button">Help</button>
-          <span class="brand-divider" aria-hidden="true"></span>
-          <button class="icon-button bag-button" type="button" aria-label="Shopping bag">
-            <img src="images/shopping-bag-small.svg" alt="">
-            <span class="bag-count" aria-label="1 item in bag">1</span>
-          </button>
+        <a class="site-header__logo" href="/" aria-label="Next home">
+          <img src="images/new-next-logo.svg" alt="Next" width="83" height="20">
+        </a>
+        <div class="site-header__actions">
+          <a class="site-header__help" href="/">Help</a>
+          <span class="site-header__divider" aria-hidden="true"></span>
+          <a class="icon-button icon-button--bag" href="/" aria-label="Bag, 1 item">
+            <img src="images/icon-bag.svg" alt="" width="24" height="24">
+            <span class="badge-count">1</span>
+          </a>
         </div>
-      </header>
-
-      <div class="page-title-bar">
-        <h1 class="page-title">Reset Password</h1>
       </div>
+      <nav class="page-nav content-width" aria-label="Page">
+        <h1 class="page-nav__title">Reset Password</h1>
+      </nav>
+    </header>
 
-      <div class="content-wrap">
-        <section class="notice-card" aria-label="Password reset notice">
-          <h2 class="notice-title">Please set a new password</h2>
-          <p class="notice-copy">You will need to use your new details next time you sign in or place an order.</p>
-        </section>
+    <main class="content-width page-content">
+      <section class="alert-banner" aria-labelledby="alert-title">
+        <h2 id="alert-title" class="alert-banner__title">Please set a new password</h2>
+        <p class="alert-banner__copy">
+          You will need to use your new details next time you sign in or place an order.
+        </p>
+      </section>
 
-        <section class="password-panel" aria-labelledby="password-label">
-          <label class="field-label" id="password-label" for="password-input">New Password</label>
-
-          <div class="password-field" data-visible="true">
+      <form class="password-form" action="/" method="post" novalidate>
+        <div class="field-group">
+          <label class="field-group__label" for="new-password">New Password</label>
+          <div class="password-input">
             <input
-              id="password-input"
-              class="password-input"
+              id="new-password"
+              class="password-input__control"
+              name="new-password"
               type="text"
               value=""
               autocomplete="new-password"
-              spellcheck="false"
-              aria-describedby="password-requirements"
             >
-            <button
-              id="password-toggle"
-              class="toggle-button"
-              type="button"
-              aria-controls="password-input"
-              aria-pressed="true"
-            >
+            <button class="password-input__toggle" type="button" aria-controls="new-password" aria-label="Hide password">
               Hide
             </button>
           </div>
+        </div>
 
-          <p class="requirements-title">Your password must contain:</p>
-
-          <ul class="requirements-list" id="password-requirements" aria-live="polite">
-            <li class="requirement-item is-met" data-rule="lowercase">
-              <span class="requirement-icon" aria-hidden="true"></span>
-              <span class="requirement-text">One lowercase letter</span>
+        <section class="password-rules" aria-labelledby="password-rules-title">
+          <h2 id="password-rules-title" class="password-rules__title">Your password must contain:</h2>
+          <ul class="password-rules__list">
+            <li class="password-rules__item" data-rule="lowercase">
+              <img class="password-rules__icon" src="images/icon-bullet-neutral.svg" alt="" width="24" height="24">
+              <span>One lowercase letter</span>
             </li>
-            <li class="requirement-item is-met" data-rule="number">
-              <span class="requirement-icon" aria-hidden="true"></span>
-              <span class="requirement-text">One number</span>
+            <li class="password-rules__item" data-rule="number">
+              <img class="password-rules__icon" src="images/icon-bullet-neutral.svg" alt="" width="24" height="24">
+              <span>One number</span>
             </li>
-            <li class="requirement-item is-unmet" data-rule="uppercase">
-              <span class="requirement-icon" aria-hidden="true"></span>
-              <span class="requirement-text">One UPPERCASE letter</span>
+            <li class="password-rules__item" data-rule="uppercase">
+              <img class="password-rules__icon" src="images/icon-bullet-neutral.svg" alt="" width="24" height="24">
+              <span>One UPPERCASE letter</span>
             </li>
-            <li class="requirement-item is-unmet" data-rule="length">
-              <span class="requirement-icon" aria-hidden="true"></span>
-              <span class="requirement-text">8 to 25 characters</span>
+            <li class="password-rules__item" data-rule="length">
+              <img class="password-rules__icon" src="images/icon-bullet-neutral.svg" alt="" width="24" height="24">
+              <span>8 to 25 characters</span>
             </li>
           </ul>
-
-          <button class="submit-button" type="button">Set New Password</button>
         </section>
-      </div>
-    </section>
-  </main>
 
+        <button class="primary-action" type="submit">Set New Password</button>
+      </form>
+    </main>
+  </div>
+  <script src="https://mcp.figma.com/mcp/html-to-design/capture.js" async></script>
   <script src="scripts/script.js"></script>
 </body>
 </html>
